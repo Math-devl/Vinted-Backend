@@ -14,9 +14,9 @@ mongoose.connect(process.env.MONGODB_URI);
 
 // config cloudinary
 cloudinary.config({
-  cloud_name: process.env.CLOU_NAME,
-  api_key: process.env.CLOU_API_KEY,
-  api_secret: process.env.CLOU_API_SECRET,
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET,
 });
 
 // Utilisation des données body de postman
@@ -35,6 +35,6 @@ app.all("*", (req, res) => {
   res.status(404).json({ message: "all route" });
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log("serveur started");
 });
